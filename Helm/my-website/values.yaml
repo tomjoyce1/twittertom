@@ -1,0 +1,38 @@
+replicaCount: 1
+
+image:
+  repository: twotter1
+  tag: latest
+
+
+service:
+  type: LoadBalancer
+  port: 80
+
+serviceAccount:
+  create: true
+
+
+ingress:
+  enabled: false
+
+resources: {}
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: 80
+
+readinessProbe:
+  httpGet:
+    path: /
+    port: 80
+
+autoscaling:
+  enabled: false
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
